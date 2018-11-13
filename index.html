@@ -65,11 +65,42 @@ $(window).load(
 </head>
 <body>
 <header>
+    <div style="text-align: right; color: whitesmoke;font-size:40px;">
+    <script type="text/javascript">
+//<![CDATA[
+function makeArray() {
+for (i = 0; i<makeArray.arguments.length; i++)
+this[i + 1] = makeArray.arguments[i];}
+var months = new makeArray('Enero','Febrero','Marzo','Abril','Mayo',
+'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth() + 1;
+var yy = date.getYear();
+var year = (yy < 1000) ? yy + 1900 : yy;
+document.write(day + " de " + months[month] + " de " + year + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp");
+//]]>
+</script>
   <div class="container_12">
     <div class="grid_12">
       <h1><a href="index.html"><img src="images/logo.png" alt=""></a></h1>
     </div>
   </div>
+<script type="text/javascript">
+function startTime(){
+today=new Date();
+h=today.getHours();
+m=today.getMinutes();
+s=today.getSeconds();
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('reloj').innerHTML=h+":"+m+":"+s+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp";
+t=setTimeout('startTime()',500);}
+function checkTime(i)
+{if (i<10) {i="0" + i;}return i;}
+window.onload=function(){startTime();}
+</script>
+<div id="reloj" style="text-align: end;font-size:20px; color:#fff"></div>
   <nav>
     <div class="container_12">
       <div class="grid_12">
@@ -83,7 +114,7 @@ $(window).load(
             </ul>
           </li>
           <li><a href="page2.html">PROXIMA</a></li>
-          <li><a href="services.html">SERVICIOS</a></li>
+          <li><a href="calendario.html">CALENDARIO</a></li>
           <li><a href="contact.html">CONTACTO</a></li>
         </ul>
         <div class="clear"></div>
@@ -226,5 +257,6 @@ $(window).load(
     </div>
   </div>
 </footer>
+
 </body>
 </html>
